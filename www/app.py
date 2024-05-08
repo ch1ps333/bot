@@ -22,15 +22,13 @@ csrf = CSRFProtect(app)
 db = SQLAlchemy(app)
 
 
-# Определение класса для формы входа
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
 
-# Определение класса для модели пользователя
 class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    id = db.Column(db.Integer, primary_key=True) 
     username = db.Column(db.String(100))
     password = db.Column(db.String(100))
 
@@ -44,7 +42,7 @@ class AddUserForm(FlaskForm):
 
 class Users(db.Model):
     __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    id = db.Column(db.Integer, primary_key=True) 
     name = db.Column(db.String(100))
     phoneNumber = db.Column(db.String(20))
     balance = db.Column(db.Integer)
@@ -58,11 +56,9 @@ with app.app_context():
     db.create_all()
 
 
-# Определение менеджера входа
 login_manager = LoginManager(app)
 migrate = Migrate(app, db)
 
-# Маршруты и функции представления
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -95,7 +91,7 @@ def adduser():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()  # Использование определенной формы
+    form = LoginForm()
     if form.validate_on_submit():
         username = form.username.data
         password = form.password.data
