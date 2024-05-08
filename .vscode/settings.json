@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "https://github.com/ch1ps333/bot.git"
+    ]
+}

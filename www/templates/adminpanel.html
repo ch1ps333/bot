@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/adminpanel.css') }}">
+
+{% extends "layout.html" %}
+
+{% block title %}
+  Адмін-панель
+{% endblock %}
+
+{% block content %}
+  <div id="container">
+    <div id="add_user" class="blocks"></div>
+    <div id="find_user" class="blocks"></div>
+    <div id="test" class="blocks"></div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        // Обработчик клика по диву
+        $("#add_user").click(function(){
+            // Переход на другую страницу
+            window.location.href = "/adduser";
+        });
+    });
+</script>
+{% endblock %}

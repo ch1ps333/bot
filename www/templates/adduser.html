@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/adduser.css') }}">
+
+{% extends "layout.html" %}
+
+{% block title %}Додання користувача{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <div id="box_head">
+            <span>Створення облікового запису користувача<br><br></span>
+            <span>{{ text }}</span>
+        </div>
+        <form method="POST" action="{{ url_for('adduser') }}">
+            <label for="name">Ім'я користувача:</label><br>
+            <input type="text" id="name" class="inputs" name="name" required><br><br>
+
+            <label for="phoneNumber">Номер телефону користувача:</label><br>
+            <input type="text" id="phoneNumber" class="inputs" name="phoneNumber" required><br><br>
+
+            <label for="balance">Баланс користувача:</label><br>
+            <input type="number" id="balance" class="inputs" name="balance" required><br><br>
+
+            <label for="subscriptionType">Тип підписки користувача:</label><br>
+            <select id="subscriptionType" class="inputs" name="subscriptionType" required>
+                <option value="test">Test</option>
+                <option value="light">Light</option>
+                <option value="standard">Standard</option>
+                <option value="gold">Gold</option>
+                <option value="vip">Vip</option>
+            </select><br><br>
+
+            <label for="subcribeEndDate">Дата, до якої діє підписка:</label><br>
+            <input type="date" id="subcribeEndDate" class="inputs" name="subcribeEndDate" required><br><br>
+            {{ form.csrf_token }}
+            <button type="submit" class="sub_btn">Створити</button>
+        </form>
+    </div>
+{% endblock %}

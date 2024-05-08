@@ -1,0 +1,53 @@
+html {
+    overflow: hidden;
+}
+
+#container {
+    display: flex;
+    width: 60%;
+    height: 90%;
+    margin-left: 20%;
+    column-count: 2;
+    column-gap: 10%;
+    column-fill: auto;
+}
+
+.blocks {
+    display: flex;
+    margin-top: 5%;
+    width: 20%;
+    height: 20%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#add_user {
+    background-image: url('../png/plus.png');
+}
+
+#add_user:hover {
+    width: 17%; /* конечная ширина при наведении */
+    height: 17%;
+    cursor: pointer;
+}
+
+
+#find_user {
+    background-image: url('../png/lupa.png');
+}
+
+#find_user:hover {
+    width: 17%; /* конечная ширина при наведении */
+    height: 17%;
+    cursor: pointer;
+}
+
+#test {
+    background-image: url('../png/settings.png');
+}
+
+#test:hover {
+    width: 17%; /* конечная ширина при наведении */
+    height: 17%;
+    cursor: pointer;
+}

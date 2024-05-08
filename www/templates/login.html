@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+{% extends "layout.html" %}
+
+{% block title %}
+  Авторизація
+{% endblock %}
+
+{% block content %}
+    <div id="container">
+        <div id="auth_box">
+            <div id="box_header">
+                <span>Авторизація</span>
+            </div>
+            <div id="box_body">
+                <form method="POST" action="{{ url_for('login') }}">
+                    <div class="box_row">
+                        <div class="input_container">
+                            <label for="name" class="label_text">Ім'я користувача</label>
+                            <input id="name" type="text" class="form-control" name="username" value="" required autofocus>
+                        </div>
+                    </div>
+                    <div class="box_row">
+                        <div class="input_container">
+                            <label for="password" class="label_text">Пароль</label>
+                            <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    {% if condition %}
+                        <span id="not_valide">Неправильний логін або пароль.</span> 
+                    {% endif %}                    
+                    
+                    <div class="sbm_row">
+                        {{ form.csrf_token }}
+                        <button type="submit" class="sub_btn">Увійти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
